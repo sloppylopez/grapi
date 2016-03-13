@@ -1,5 +1,7 @@
 package grapi
 
+import grails.config.Config
+import grails.core.support.GrailsConfigurationAware
 
 class AuthInterceptor implements GrailsConfigurationAware {
 
@@ -22,7 +24,7 @@ class AuthInterceptor implements GrailsConfigurationAware {
         GroovySystem.println('Before AuthInterceptor Executed')
         // if the user has not been authenticated,
         // redirect to authenticate the user...
-        if (request) {
+        if (false) {
             redirect controller: 'auth', action: 'login'
             return false
         }
