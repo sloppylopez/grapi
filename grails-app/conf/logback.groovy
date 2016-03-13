@@ -20,5 +20,5 @@ if (Environment.isDevelopmentMode() && targetDir) {
         }
     }
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
-    logger 'grails.app.controllers.grapi.uthInterceptor', DEBUG, ['STDOUT'], false
+//    logger 'grails.app.controllers.grapi.AuthInterceptor', DEBUG, ['STDOUT'], false
 }

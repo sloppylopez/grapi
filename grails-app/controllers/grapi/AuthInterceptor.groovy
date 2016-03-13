@@ -1,14 +1,11 @@
 package grapi
 
-import grails.config.Config
-import grails.core.support.GrailsConfigurationAware
-
-class AuthInterceptor implements GrailsConfigurationAware {
+class AuthInterceptor {
 //Example non dynamic
-//    public AuthInterceptor() {
+    public AuthInterceptor() {
         // match all requests except requests
         // to the auth controller
-    // matchAll().excludes(controller: 'auth')
+        matchAll().excludes(controller: 'auth')
 
         // match all requests to the
         // reporting controller...
@@ -17,10 +14,11 @@ class AuthInterceptor implements GrailsConfigurationAware {
         // match all requests to the application
         // or application controller with action ´get´
         //match controller: ~/(application|application)/, action: 'get'
-//    }
+    }
 
     boolean before() {
         GroovySystem.println('Before AuthInterceptor Executed')
+        params.firstInterceptorRan = 'yes'
         // if the user has not been authenticated,
         // redirect to authenticate the user...
         if (false) {
@@ -39,10 +37,10 @@ class AuthInterceptor implements GrailsConfigurationAware {
         // no-op
     }
     //Dynamic example
-    @Override
-    void setConfiguration(Config co) {
-        // configure the interceptor matching dynamically
-        // based on what is in application.yml
-        match co.'grapi.interceptor.application'
-    }
+//    @Override
+//    void setConfiguration(Config co) {
+//        // configure the interceptor matching dynamically
+//        // based on what is in application.yml
+//        match co.'grapi.interceptor.application'
+//    }
 }
