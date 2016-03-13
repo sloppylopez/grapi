@@ -13,6 +13,12 @@ dataSource:
     username: sa
     password:
 
+grapi:
+    interceptor:
+        application:
+            action: index
+            controller: application
+
 environments:
     development:
         dataSource:

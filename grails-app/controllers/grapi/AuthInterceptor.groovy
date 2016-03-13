@@ -4,12 +4,11 @@ import grails.config.Config
 import grails.core.support.GrailsConfigurationAware
 
 class AuthInterceptor implements GrailsConfigurationAware {
-
-    public AuthInterceptor() {
+//Example non dynamic
+//    public AuthInterceptor() {
         // match all requests except requests
         // to the auth controller
-//        matchAll().excludes(controller: 'auth')
-        match controller: 'application'
+    // matchAll().excludes(controller: 'auth')
 
         // match all requests to the
         // reporting controller...
@@ -18,7 +17,7 @@ class AuthInterceptor implements GrailsConfigurationAware {
         // match all requests to the application
         // or application controller with action ´get´
         //match controller: ~/(application|application)/, action: 'get'
-    }
+//    }
 
     boolean before() {
         GroovySystem.println('Before AuthInterceptor Executed')
@@ -39,11 +38,11 @@ class AuthInterceptor implements GrailsConfigurationAware {
     void afterView() {
         // no-op
     }
-
+    //Dynamic example
     @Override
     void setConfiguration(Config co) {
         // configure the interceptor matching dynamically
         // based on what is in application.yml
-        match co.'demo.interceptor.first'
+        match co.'grapi.interceptor.application'
     }
 }
