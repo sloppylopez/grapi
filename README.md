@@ -14,3 +14,4 @@
 ##Pitfalls
     1)In build.gradle we have to use for the project to run...
         profile "org.grails.profiles:rest-api:3.1.2"
+    2)It's recomended to use ´sdkman´ to gather all the sdk's we will need (Groovy, Gradle, Grails) to be used in our Intellij IDE
